@@ -3,11 +3,15 @@ Nome scenario:			Il disegno
 Attori partecipanti:		Maria, Anna:ExigramUser
 
 Sequenza degli eventi:		1. Maria è appassionata d'arte e le piace disegnare. Decide di caricare su Exigram 
-				la foto di un disegno che ha finito inserendo una breve descrizione e dei tag
+				la foto di un disegno che ha finito inserendo una breve descrizione e un tag.
 				
-				2. Anna, essendo anche lei appassionata di arte, esegue una ricerca tramite tag 
-				e trova la foto di Maria; mette un "upvotes" alla foto del disegno, le scrive un 
-				commento, inizia a seguirla in modo tale da ricevere una notifica nel caso 
-				in cui Maria carichi nuovi disegni e scarica la foto per utilizzara come scree-saver 
+				2. Anna, essendo anche lei appassionata di arte, esegue una ricerca tramite il medesimo 
+				tag e trova la foto di Maria; mette un "upvotes" alla foto del disegno e le scrive un 
+				commento d'approvazione.
 				
-				3. Maria riceve una notifica e risponde al commento di Anna
+				3. Anna Inizia a seguire il profilo di Maria, in modo tale da ricevere una notifica 
+				nel caso in cui Maria carichi nuovi disegni, e scarica la foto per utilizzarla 
+				come screen-saver. 
+				
+				4. Maria riceve una notifica e risponde al commento di Anna ringraziandola per il 
+				suo supporto.
