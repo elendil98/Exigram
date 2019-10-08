@@ -1,6 +1,6 @@
 Nome scenario:			Il disegno
 
-Attori partecipanti:		Maria, Anna:ExigramUser
+Attori partecipanti:		Maria, Anna:ExigramUser
 
 Sequenza degli eventi:		1. Maria è appassionata d'arte e le piace disegnare. Decide di caricare su Exigram 
 				la foto di un disegno che ha finito inserendo una breve descrizione e un tag.
