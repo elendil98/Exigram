@@ -8,3 +8,10 @@ Flow of events:
 3) Salvatore, pittore appassionato di paesaggi ed utente di Exigram, vuole trovare delle persone che caricano foto per poterle dipingere. Si avvicina alla barra di ricerca e scrive l'argomento a lui interessato.
 4) Trova le foto caricate da Davide e, impressionato dalla sua capacità fotografica, decide di seguirlo per non perdere le prossime foto che verranno caricate.
 5) Davide riceve una notifica di un nuovo seguace e decide di andarlo a controllare. Gli piacciono i dipinti di Salvatore e inizia anche lui a seguirlo mutualmente.
+
+NONFUNCTIONAL REQUIREMENTS
+-Uptime: Il software dovrà essere accessibile 24 ore su 24, 7 giorni su 7.
+-Interfaccia utente: l'utilizzo del software deve essere facile e pratico, per mettere l'utente a suo agio con un'interfaccia semplice da capire, con colori accattivanti, schematizzazioni coerenti tra le varie funzioni e varie schede in base all'opzione da usare.
+-Prestazioni: L'utilizzo del software non deve essere compromesso da grandi quantità di dati, restando performante anche sotto un carico pesante di informazioni.
+-Preservazione dei media: Il software usa un tipo di compressione chiamata "lossless" ovvero compressione senza perdita, per assicurare che i media caricati e scaricati non abbiano problemi di visualizzazione o artefatti e siano fedeli al materiale originale.
+-Uso contemporaneo: Ovviamente più utenti possono essere in grado di usare il software contemporaneamente. Ogni istanza dell'applicazione è eseguita localmente, ma diverse istanze possono comunque comunicare tra di loro per garantire un tipo di interazione tra utenti più fluida.
