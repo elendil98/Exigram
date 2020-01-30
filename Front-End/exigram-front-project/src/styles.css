@@ -1,0 +1,6 @@
+/* Stile globale, possibile aggiunta di altri file */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+body{
+    background-image: url("./images/bkground.png");  
+}
