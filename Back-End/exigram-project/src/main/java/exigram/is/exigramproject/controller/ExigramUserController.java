@@ -60,7 +60,7 @@ public class ExigramUserController {
     public void recoverProfile(@RequestBody ExigramUserDto exigramUserDto) {
         ExigramUser exigramUser = exigramUserService.findExigramUserByUsername(
             exigramUserMapperService.toExigramUser(exigramUserDto).getUser().getUsername());
-
+        //Permission Denied- need of correction 
         exigramUser.getUser().setPassword(RecoverPasswordUtil.getRecoverPassword());
         exigramUserService.updateProfile(exigramUser);
     }
