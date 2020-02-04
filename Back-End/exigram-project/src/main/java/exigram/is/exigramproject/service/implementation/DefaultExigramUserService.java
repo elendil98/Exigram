@@ -22,6 +22,9 @@ public class DefaultExigramUserService extends DefaultBaseProfileService<Exigram
 		return exigramUserRepository;
 	}
 
-	
+	@Override
+	public ExigramUser findExigramUserByUsername(String username) {
+		return exigramUserRepository.findByUserUsername(username);
+	}
 
 }
