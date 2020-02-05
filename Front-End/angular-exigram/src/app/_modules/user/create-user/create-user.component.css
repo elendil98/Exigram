@@ -1,0 +1,19 @@
+.create{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color:white;
+}
+
+.form{
+    width: 48%;
+}
+
+#decision-button{
+    width: 48%;
+}
+
+.first-button{
+    margin-right: 4%;
+}

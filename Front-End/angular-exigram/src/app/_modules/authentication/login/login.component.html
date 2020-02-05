@@ -1,7 +1,7 @@
 <div class="login">
-    <form (ngSubmit)="onSubmit()">
+    <form class="form" (ngSubmit)="onSubmit()">
 
-      <h2>Exigram</h2>
+      <h2 style="text-align:center">Exigram</h2>
       
       <div class="form-group">
         <label for="username">Username</label>
@@ -20,8 +20,8 @@
       </div> 
     
       <div class="register-group">
-          <button (click)="register()" class="btn btn-info btn-block">Non hai un account? Registrati ora!</button>
-          <button (click)="recover()" class="btn btn-info btn-block">Non ricordi le credenziali? Recuperale!</button>
+          <button (click)="register()" id="bottone" class="btn btn-info btn-block">Non hai un account? Registrati ora!</button>
+          <button (click)="recover()" id="bottone" class="btn btn-info btn-block">Non ricordi le credenziali? Recuperale!</button>
       </div>
     </form>
 </div>

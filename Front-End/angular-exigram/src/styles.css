@@ -2,5 +2,5 @@
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 body{
-    background-image: url("./images/bkground.png");  
+    background-image: linear-gradient(to bottom right, red, blue);
 }
