@@ -21,9 +21,11 @@ export class RecoverPasswordComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.recoverUser().subscribe(
+    this.userService.recoverUser(this.user).subscribe(
       data => console.log(data), error => console.log(error)
     );
+    this.user = new User();
+    this.user.userDto = new UserDto();
     this.goBack();
   }
 

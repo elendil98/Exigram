@@ -1,6 +1,8 @@
 package exigram.is.exigramproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,12 +14,19 @@ import exigram.is.exigramproject.model.dto.ExigramUserDto;
 import exigram.is.exigramproject.service.ExigramUserMapperService;
 import exigram.is.exigramproject.service.ExigramUserService;
 import exigram.is.exigramproject.utils.RecoverPasswordUtil;
+import it.simyth.jwtsecurity.services.SessionService;
 
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/users")
 public class ExigramUserController {
+
+    @Autowired
+    private JavaMailSender emailSender;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private ExigramUserService exigramUserService;
@@ -60,9 +69,11 @@ public class ExigramUserController {
     public void recoverProfile(@RequestBody ExigramUserDto exigramUserDto) {
         ExigramUser exigramUser = exigramUserService.findExigramUserByUsername(
             exigramUserMapperService.toExigramUser(exigramUserDto).getUser().getUsername());
-        //Permission Denied- need of correction 
-        exigramUser.getUser().setPassword(RecoverPasswordUtil.getRecoverPassword());
-        exigramUserService.updateProfile(exigramUser);
+            
+        String recoverPassword = RecoverPasswordUtil.getRecoverPassword();
+        exigramUser.getUser().setPassword(passwordEncoder.encode(recoverPassword));
+        emailSender.send(RecoverPasswordUtil.createMail(exigramUser.getUser().getEmail(), recoverPassword));
+        exigramUserService.getExigramUserRepository().save(exigramUser);
     }
 
 }

@@ -1,12 +1,18 @@
 package exigram.is.exigramproject.service.implementation;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import exigram.is.exigramproject.model.database.Post;
 import exigram.is.exigramproject.model.dto.PostDto;
 import exigram.is.exigramproject.service.PostMapperService;
 
+@Service
 public class DefaultPostMapperService implements PostMapperService {
+
+    @Autowired
+    PostMapperService postMapperService;
 
     ModelMapper modelMapper;
 

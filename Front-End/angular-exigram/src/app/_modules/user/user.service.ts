@@ -36,8 +36,8 @@ export class UserService {
     return this.http.delete(`${this.baseUrl}/${id}`, {responseType: 'text'});
   }
 
-  recoverUser(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  recoverUser(user: User): Observable<any> {
+    return this.http.put(`${this.baseUrl}/recover`, user);
   }
 
 }

@@ -19,8 +19,23 @@ public class DefaultPostService implements PostService {
     }
 
     @Override
+    public Post getPost(Long id) {
+        return postRepository.findPostById(id);
+    }
+
+    @Override
     public Post createPost(Post post) {
         return postRepository.save(post);
+    }
+
+    @Override
+    public void updatePost(Post post) {
+        postRepository.save(post);
+    }
+
+    @Override
+    public void deletePost() {
+        
     }
 
 }
