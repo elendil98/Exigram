@@ -1,15 +1,27 @@
 <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h2>Lista Utenti</h2>
-    </div>
+  <div class="nav">
+    <nav class="navbar navbar-light bg-light">
+      <div>
+        <img height="35" width="40" src="assets\logo.png">
+        <a>     Exigram</a>
+      </div>
+      <a class="lista-utenti">Lista utenti</a>
+      <a class="utenti-segnalati">Utenti Segnalati</a>
+      <a class="post segnalati">Post segnalati</a>
+      <a class="logout">Logout</a>
+    </nav>
+  </div>
+
     <div class="panel-body">
+      <div class="panel-heading">
+        <h2>Lista Utenti</h2>
+      </div>
       <table class="table table-striped">
         <thead>
           <tr>
             <th>Nome</th>
             <th>Cognome</th>
             <th>Username</th>
-            <th>Password</th>
             <th>Email</th>
             <th>Azioni</th>
           </tr>
@@ -19,13 +31,12 @@
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.userDto.username}}</td>
-            <td>{{user.userDto.password}}</td>
             <td>{{user.userDto.email}}</td>
-            <td><!--
+            <!--<td>
                 <button (click)="deleteUser(user.id)" class="btn btn-danger">Elimina</button>
-                <button (click)="userUpdate(user.id)" class="btn btn-info" style="margin-left: 10px">Aggiorna</button>
-                <button (click)="userDetails(user.id)" class="btn btn-info" style="margin-left: 10px">Dettagli</button>
-            --></td>
+                <button (click)="userUpdate(user.id)" class="btn btn-info" style="margin-left: 2%">Aggiorna</button>
+                <button (click)="userDetails(user.id)" class="btn btn-info" style="margin-left: 2%">Dettagli</button>
+            </td>-->
           </tr>
         </tbody>
       </table>

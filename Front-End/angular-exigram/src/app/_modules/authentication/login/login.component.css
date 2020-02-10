@@ -6,11 +6,18 @@
   height: 100vh;
   margin: auto;
   font-size: 16px;
-  color:white;
+  color:black;
+  background-color: rgb(241, 240, 240);
+}
+
+.login-button{
+  padding-left: 45%;
+  padding-right: 45%;
+  
 }
 
 .form{
-  width: 50%;
+  width: 30%;
 }
 
 .login input[type="email"],

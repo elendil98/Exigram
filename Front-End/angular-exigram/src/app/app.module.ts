@@ -9,13 +9,15 @@ import { AdminComponent } from './admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecoverPasswordComponent } from './_modules/authentication/recover-password/recover-password.component';
 import { UserModule } from './_modules/user/user.module';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AdminComponent,
-    RecoverPasswordComponent
+    RecoverPasswordComponent,
+    SearchComponent
   ],
   imports: [
     FormsModule,

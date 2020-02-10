@@ -1,6 +1,6 @@
 /* Stile globale, possibile aggiunta di altri file */
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
-body{
-    background-image: linear-gradient(to bottom right, red, blue);
+html{
+    background-color: rgb(241, 240, 240);
 }

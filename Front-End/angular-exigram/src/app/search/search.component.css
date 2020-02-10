@@ -1,0 +1,9 @@
+.panel{
+    background-color: rgb(241, 240, 240);
+    color: black;
+    margin: auto;
+}
+
+.result{
+    padding: 5% 25% 0%;
+}
