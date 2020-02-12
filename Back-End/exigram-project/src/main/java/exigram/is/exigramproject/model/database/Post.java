@@ -19,14 +19,14 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(nullable = false)
     private ExigramUser exigramUser;
 
     @Lob
-    private Byte[] image;
+    private byte[] image;
     private String description;
     private int votes;
 

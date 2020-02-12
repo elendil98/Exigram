@@ -14,12 +14,7 @@ public class DefaultPostService implements PostService {
     private PostRepository postRepository;
 
     @Override
-    public Post findUserPostById(Long postId) {
-        return postRepository.findPostById(postId);
-    }
-
-    @Override
-    public Post getPost(Long id) {
+    public Post getPostById(Long id) {
         return postRepository.findPostById(id);
     }
 
@@ -34,8 +29,13 @@ public class DefaultPostService implements PostService {
     }
 
     @Override
-    public void deletePost() {
-        
+    public void deletePost(Post post) {
+        postRepository.delete(post);
+    }
+
+    @Override
+    public PostRepository getPostRepository() {
+        return postRepository;
     }
 
 }

@@ -1,5 +1,11 @@
 package exigram.is.exigramproject.controller;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.net.URL;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,7 +20,6 @@ import exigram.is.exigramproject.model.dto.ExigramUserDto;
 import exigram.is.exigramproject.service.ExigramUserMapperService;
 import exigram.is.exigramproject.service.ExigramUserService;
 import exigram.is.exigramproject.utils.RecoverPasswordUtil;
-import it.simyth.jwtsecurity.services.SessionService;
 
 import org.springframework.web.bind.annotation.PutMapping;
 
@@ -35,10 +40,20 @@ public class ExigramUserController {
     private ExigramUserMapperService exigramUserMapperService;
 
     @PostMapping("/create")
-    public ExigramUserDto createProfile(@RequestBody ExigramUserDto exigramUserDto) {
-        return exigramUserMapperService.toExigramUserDto(
-            exigramUserService.createProfileAnonymously(
-            exigramUserMapperService.toExigramUser(exigramUserDto)));
+    public ExigramUserDto createProfile(@RequestBody ExigramUserDto exigramUserDto) throws IOException {
+        // Creo un immagine con un buffer accessibile
+        URL url = getClass().getResource("defaultUserImage.png");
+        BufferedImage bufferedImage = ImageIO.read(url);
+        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+        ImageIO.write(bufferedImage, "png", byteArray);
+        byte[] imageData = byteArray.toByteArray();
+        
+        // Creo prima l'utente, per poi settargli l'immagine di default
+        ExigramUser exigramUser = exigramUserService.createProfileAnonymously(
+        exigramUserMapperService.toExigramUser(exigramUserDto));
+        exigramUser.setUserImage(imageData);
+        exigramUserService.getExigramUserRepository().save(exigramUser);
+        return exigramUserMapperService.toExigramUserDto(exigramUser);
     }
 
     @GetMapping("/get")

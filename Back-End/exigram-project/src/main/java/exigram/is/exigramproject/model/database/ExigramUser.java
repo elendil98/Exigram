@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 import it.simyth.jwtsecurity.models.BaseProfile;
@@ -31,6 +32,8 @@ public class ExigramUser implements BaseProfile{
 	@JoinColumn(nullable = false)
     private User user;
 
+    @Lob
+    private byte[] userImage;
     private String firstName;
     private String lastName;
     private String biography;

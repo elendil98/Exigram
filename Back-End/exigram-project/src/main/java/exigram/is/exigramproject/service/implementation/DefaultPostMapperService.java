@@ -22,15 +22,17 @@ public class DefaultPostMapperService implements PostMapperService {
 
     @Override
     public Post toPost(PostDto postDto) {
-        //Possibile necessità di aggiungere il setExigramUser()
         Post post = modelMapper.map(postDto, Post.class);
+        postMapperService.toPost(postDto); //Useless
+
         return post;
     }
 
     @Override
     public PostDto toPostDto(Post post) {
-        //Possibile necessità di aggiungere il setExigramUser()
         PostDto postDto = modelMapper.map(post, PostDto.class);
+        postMapperService.toPostDto(post); //Useless
+
         return postDto;
     }
 

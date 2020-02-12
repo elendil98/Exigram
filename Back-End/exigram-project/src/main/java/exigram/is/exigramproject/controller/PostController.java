@@ -1,6 +1,7 @@
 package exigram.is.exigramproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,12 +21,12 @@ public class PostController {
 
     @Autowired
     PostMapperService postMapperService;
-/*
+
     @GetMapping("/get")
-    public PostDto getPost() {
-       
+    public PostDto getPost(Long id) {
+        return postMapperService.toPostDto(postService.getPostById(id));
     }
-*/
+
     @PostMapping("/create")
     public PostDto createPost(@RequestBody PostDto postDto) {
         return postMapperService.toPostDto(postService.createPost(
@@ -33,13 +34,13 @@ public class PostController {
     }
     
     @PutMapping("/update")
-    public PostDto updatePost(@RequestBody PostDto postDto) {
-        return postDto;
+    public void updatePost(@RequestBody PostDto postDto) {
+        postService.updatePost(postMapperService.toPost(postDto));
     }
  
     @PutMapping("/delete")
-    public void deletePost() {
-        
+    public void deletePost(@RequestBody PostDto postDto) {
+        postService.deletePost(postMapperService.toPost(postDto));
     }
 
 }
