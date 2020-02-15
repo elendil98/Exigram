@@ -10,18 +10,16 @@ import { User } from '../user';
 })
 export class UpdateUserComponent implements OnInit {
 
-  id: number;
+  username: string;
   user: User;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-
     this.user = new User();
+    this.username = this.route.snapshot.params['username'];
 
-    this.id = this.route.snapshot.params['id'];
-
-    this.userService.getUser(this.id).subscribe(
+    this.userService.getUser(this.username).subscribe(
       data => {
         console.log(data)
         this.user = data
@@ -30,7 +28,7 @@ export class UpdateUserComponent implements OnInit {
   }
 
   updateUser() {
-    this.userService.updateUser(this.id, this.user).subscribe(
+    this.userService.updateUser(this.username, this.user).subscribe(
       data => console.log(data), error => console.log(error)
     );    
     this.user = new User();

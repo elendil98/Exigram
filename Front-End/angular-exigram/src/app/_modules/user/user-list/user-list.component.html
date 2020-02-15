@@ -32,11 +32,10 @@
             <td>{{user.lastName}}</td>
             <td>{{user.userDto.username}}</td>
             <td>{{user.userDto.email}}</td>
-            <!--<td>
-                <button (click)="deleteUser(user.id)" class="btn btn-danger">Elimina</button>
-                <button (click)="userUpdate(user.id)" class="btn btn-info" style="margin-left: 2%">Aggiorna</button>
-                <button (click)="userDetails(user.id)" class="btn btn-info" style="margin-left: 2%">Dettagli</button>
-            </td>-->
+            <td>
+                <button (click)="deleteUser(user)" class="btn btn-danger">Elimina</button>
+                <button (click)="userDetails(user.userDto.username)" class="btn btn-info" style="margin-left: 2%">Dettagli</button>
+            </td>
           </tr>
         </tbody>
       </table>

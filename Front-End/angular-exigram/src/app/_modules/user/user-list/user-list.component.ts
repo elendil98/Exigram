@@ -23,8 +23,8 @@ export class UserListComponent implements OnInit {
     this.users = this.userService.getAllUser();
   }
 
-  deleteUser(id: number) {
-    this.userService.deleteUser(id).subscribe(
+  deleteUser(user: User) {
+    this.userService.deleteSelectedUser(user).subscribe(
       data => {
         console.log(data);
         this.reloadData();
@@ -33,12 +33,8 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  userDetails(id: number) {
-    this.router.navigate(['details', id]);
-  }
-
-  userUpdate(id: number) {
-    this.router.navigate(['update', id]);
+  userDetails(username: string) {
+    this.router.navigate(['details', username]);
   }
 
 }

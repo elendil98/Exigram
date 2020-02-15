@@ -5,14 +5,18 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import exigram.is.exigramproject.model.database.ExigramUser;
@@ -56,10 +60,27 @@ public class ExigramUserController {
         return exigramUserMapperService.toExigramUserDto(exigramUser);
     }
 
+    @GetMapping("/get/{username}")
+    public ExigramUserDto getProfileByUsername(@PathVariable String username) {
+            return exigramUserMapperService.toExigramUserDto(
+            exigramUserService.findExigramUserByUsername(username));
+    }
+
     @GetMapping("/get")
     public ExigramUserDto getProfile() {
         return exigramUserMapperService.toExigramUserDto(
             exigramUserService.getProfile());
+    }
+
+    @GetMapping("/getAll")
+    public List<ExigramUserDto> getAllProfiles() {
+        List<ExigramUser> list = exigramUserService.getAllExigramUsers();
+        List<ExigramUserDto> listDto = new ArrayList<>();
+        for(int i = 0; i < list.size(); i++) {
+            listDto.add(exigramUserMapperService.toExigramUserDto(list.get(i)));
+        }
+        //Controllo lista vuota
+        return listDto;
     }
 
     // Utilizzo di post per evitare di mandare la password, invece di get
@@ -75,9 +96,17 @@ public class ExigramUserController {
         exigramUserService.updateProfile(exigramUserMapperService.toExigramUser(exigramUserDto));
     }
 
-    @PutMapping("/delete")
+    @PostMapping("/delete")
     public void deleteProfile() {
         exigramUserService.deleteProfile(exigramUserService.getProfile());
+    }
+
+    @PostMapping("/remove")
+    public void removeProfile(@RequestBody ExigramUserDto exigramUserDto) {
+        // Removing login privileges using jpa directly without using service
+        exigramUserService.getExigramUserRepository().delete(
+            exigramUserService.findExigramUserByUsername(exigramUserDto.getUserDto().getUsername())
+        );
     }
 
     @PutMapping("/recover")

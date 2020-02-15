@@ -11,6 +11,7 @@ import { AdminComponent } from './_modules/admin/admin.component';
 import { AuthGuardService } from './_guards/auth-guard.service';
 import { DashboardComponent } from './_modules/dashboard/dashboard/dashboard.component';
 import { PostAuthGuardService } from './_guards/post-auth-guard.service';
+import { SearchComponent } from './_modules/search/search.component';
 
 
 const routes: Routes = [
@@ -22,8 +23,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },  //canActivate: AuthGuardService
   { path: 'admin', component: AdminComponent}, //canActivate: AuthGuardService
   { path: 'users', component: UserListComponent }, //canActivate: AuthGuardService
-  { path: 'update/:id', component: UpdateUserComponent }, //canActivate: AuthGuardService
-  { path: 'details/:id', component: UserDetailsComponent }, //canActivate: AuthGuardService
+  { path: 'update/:username', component: UpdateUserComponent }, //canActivate: AuthGuardService
+  { path: 'details/:username', component: UserDetailsComponent }, //canActivate: AuthGuardService
+  { path: 'search/:username', component: SearchComponent }, //canActivate: AuthGuardService
   { path: '**', redirectTo: 'error' },
 ];
 

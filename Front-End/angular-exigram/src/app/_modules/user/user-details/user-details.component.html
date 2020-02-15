@@ -22,18 +22,18 @@
     <div class="tutto-utente" >
       <div class="info-utente">
         <div class="foto">
-          <img class="f" src="assets/defaultUser.jpg">
+          <img class="f" src={{user.userImage}}>
         </div>
         <div class="utente">
           <button class="modifica" style="margin-left: 70%;">Modifica profilo</button>
-          <p>Username: </p> {{user.userDto.username}}
-          <p>Nome:</p>
-          <p>Cognome</p>
-          <p>Email</p>
+          <p>Username: {{user.userDto.username}}</p> 
+          <p>Nome: {{user.firstName}}</p> 
+          <p>Cognome: {{user.lastName}}</p> 
+          <p>Email: {{user.userDto.email}}</p> 
         </div>
         <div class="bio">
           <p>Biografia:</p>
-          <p>questa è una biografia questa è una biografia questa è una biografia questa è una biografia questa è una biografia questa è una biografia questa è una biografia questa è una biografia questa è una biografia questa è una biografia questa è una biografia </p><br><!--{{bio}}-->
+          <p>{{user.biography}}</p><br>
         </div>
       </div>
       <br>
