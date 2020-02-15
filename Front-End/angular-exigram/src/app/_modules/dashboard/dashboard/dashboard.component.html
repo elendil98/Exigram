@@ -1,1 +1,44 @@
-<p>dashboard works!</p>
+<div class="panel">
+    <div class="nav">
+        <nav class="navbar navbar-light bg-light">
+          <div>
+            <img height="35" width="40" src="assets\logo.png">
+            <a class="exigram-brand">     Exigram</a>
+          </div>
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <a class="notifiche">Notifiche</a>
+          <a class="profilo">
+            Profilo <!--{{user.userDto.username}} -->
+          </a>
+          <a>Logout</a>
+        </nav>
+    </div> 
+
+    <div class="tutto">
+        <div class="bottone-post" style="margin-bottom: 1%;">
+            <button id="nuovo-post"> Crea post </button>    
+        </div>
+
+        <div class="post">
+            <div>
+              <a style="margin-left: 1%;">utente che ha caricato il post</a>
+            </div>
+            <div class="immagine">
+                <img width="auto" height="300px" class="img-centrata" src="assets/defaultUser.jpg">
+            </div>
+            <div class="voto">
+                <button style="border-color: transparent;" ><img height="25px" width="25px" src="assets/freccia-su.jpg"></button>
+                <button style="margin-left: 1%; border-color: transparent;"><img height="25px" width="25px" src="assets/freccia-giu.png"></button>
+                <a style="margin-left: 1%;">voto</a>
+            </div>
+            <div class="commento">
+                <a>Username</a>
+                <p>questo è un commento</p>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,51 @@
+.panel{
+    background-color: rgb(241, 240, 240);
+}
+
+.navbar{
+    width: 100%;
+    padding-left: 27%;
+    padding-right: 25%;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.tutto{
+    margin-left: 27%;
+    margin-right: 25%;
+}
+
+#nuovo-post{
+    text-align: center;
+}
+
+.bottone-post{
+    text-align: center;
+    margin-top: 2%;
+}
+
+.immagine{
+    text-align: center;
+}
+
+.img-centrata {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post{
+    margin-top: 1px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+
+
+.commento{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    padding-left: 1%;
+    padding-right: 1%;
+}

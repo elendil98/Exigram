@@ -11,9 +11,14 @@
     width: 30%;
 }
 
-#decision-button{
+#decision-button-1{
     width: 48%;
 }
+
+#decision-button-2{
+    width: 48%;
+}
+
 
 .first-button{
     margin-right: 4%;
