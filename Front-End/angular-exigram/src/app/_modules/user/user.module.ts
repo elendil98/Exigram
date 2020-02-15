@@ -7,8 +7,6 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     UserListComponent,

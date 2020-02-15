@@ -3,6 +3,8 @@ package exigram.is.exigramproject.service.implementation;
 import it.simyth.jwtsecurity.repositories.BaseProfileRepository;
 import it.simyth.jwtsecurity.services.implementations.DefaultBaseProfileService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,11 @@ public class DefaultExigramUserService extends DefaultBaseProfileService<Exigram
 	@Override
 	public ExigramUserRepository getExigramUserRepository() {
 		return exigramUserRepository;
+	}
+
+	@Override
+	public List<ExigramUser> getAllExigramUsers() {
+		return exigramUserRepository.findAll();		
 	}
 
 }

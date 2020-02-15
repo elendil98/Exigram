@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './_modules/authentication/login/login.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent } from './_modules/admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecoverPasswordComponent } from './_modules/authentication/recover-password/recover-password.component';
 import { UserModule } from './_modules/user/user.module';
-import { SearchComponent } from './search/search.component';
+import { ErrorPageComponent } from './_modules/dashboard/error-page/error-page.component';
+import { DashboardComponent } from './_modules/dashboard/dashboard/dashboard.component';
+import { SearchComponent } from './_modules/search/search.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { SearchComponent } from './search/search.component';
     LoginComponent,
     AdminComponent,
     RecoverPasswordComponent,
-    SearchComponent
+    SearchComponent,
+    ErrorPageComponent,
+    DashboardComponent
   ],
   imports: [
     FormsModule,
