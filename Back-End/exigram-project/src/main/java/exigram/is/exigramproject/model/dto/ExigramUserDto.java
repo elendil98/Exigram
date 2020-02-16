@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 public class ExigramUserDto {
 
     private UserDto userDto;
-    private byte[] userImage;
+    private String userImage;
     private String firstName;
     private String lastName;
     private String biography;

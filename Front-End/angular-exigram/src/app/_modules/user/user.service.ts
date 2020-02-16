@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user';
@@ -21,11 +21,18 @@ export class UserService {
   }
 
   createUser(user: User): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/create`, user);
+    return this.http.post(`${this.baseUrl}/create`, user); 
   }
 
-  updateUser(username: string, user: User): Observable<void> {
-    return this.http.put<void>(`${this.baseUrl}/${username}`, user);
+  updateUser(user: User): Observable<void> {
+    let httpHeaders = new HttpHeaders();
+    httpHeaders.append('Authorization', 'Bearer ' + user.userDto.token);
+    let options = {headers: httpHeaders};
+    return this.http.post<void>(`${this.baseUrl}/update`, user, options);
+  }
+
+  updateUserPassword(user: User): Observable<void> {
+    return this.http.put<void>(`${this.baseUrl}/update/password`, user);
   }
 
   deleteSelectedUser(user: User): Observable<void> {

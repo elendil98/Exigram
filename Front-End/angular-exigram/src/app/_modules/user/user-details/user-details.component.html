@@ -1,4 +1,3 @@
-
 <div class="panel">
   <div class="nav">
     <nav class="navbar navbar-light bg-light">
@@ -11,21 +10,21 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <a class="notifiche">Notifiche</a>
-      <a class="profilo">
-        Profilo {{user.userDto.username}} 
+      <a *ngIf="isLoaded()" class="profilo">
+        {{user.userDto.username}} 
       </a>
-      <a>Logout</a>
+      <button class = "modifica" (click)="logout()">Logout</button>
     </nav>
   </div>  
 
-  <div *ngIf="user">
+  <div *ngIf="isLoaded()">
     <div class="tutto-utente" >
       <div class="info-utente">
         <div class="foto">
-          <img class="f" src={{user.userImage}}>
+        <img class="f" [src]="getSafeUrl()">
         </div>
         <div class="utente">
-          <button class="modifica" style="margin-left: 70%;">Modifica profilo</button>
+          <button (click)="goToUserUpdate()" class="modifica" style="margin-left: 70%;">Modifica profilo</button>
           <p>Username: {{user.userDto.username}}</p> 
           <p>Nome: {{user.firstName}}</p> 
           <p>Cognome: {{user.lastName}}</p> 

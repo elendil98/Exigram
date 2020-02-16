@@ -1,5 +1,7 @@
 package exigram.is.exigramproject.service.implementation;
 
+import java.util.Base64;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,14 +31,23 @@ public class DefaultExigramUserMapperService implements ExigramUserMapperService
 
         // Copia dell'oggetto annidata (Utilizata per più oggetti, ad es)
         exigramUser.setUser(accountMapperService.toUser(exigramUserDto.getUserDto()));
+        if(exigramUserDto.getUserImage() != null){
+            byte[] decodedImage = Base64.getDecoder().decode(exigramUserDto.getUserImage());
+            exigramUser.setUserImage(decodedImage);
+        }
         return exigramUser;
+
     }
     
     @Override
     public ExigramUserDto toExigramUserDto(ExigramUser exigramUser) {
         ExigramUserDto exigramUserDto = modelMapper.map(exigramUser, ExigramUserDto.class);
-
+        
         exigramUserDto.setUserDto(accountMapperService.toUserDto(exigramUser.getUser()));
+        if(exigramUser.getUserImage() != null) {
+            byte[] encodedImage = Base64.getEncoder().encode(exigramUser.getUserImage());
+            exigramUserDto.setUserImage(new String(encodedImage));
+        }
         return exigramUserDto;
     }
 

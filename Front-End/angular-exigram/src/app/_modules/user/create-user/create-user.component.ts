@@ -12,7 +12,6 @@ import { User } from '../user';
 export class CreateUserComponent implements OnInit {
 
   user: User = new User();
-  submitted = false;
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -21,12 +20,9 @@ export class CreateUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
     this.userService.createUser(this.user).subscribe(
       data => console.log(data), error => console.log(error)
     );
-    this.user = new User();
-    this.user.userDto = new UserDto();
     this.goBack();
   }
 

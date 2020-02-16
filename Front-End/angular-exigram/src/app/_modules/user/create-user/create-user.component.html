@@ -1,4 +1,4 @@
-  <div [hidden]="submitted" class="create">
+  <div class="create">
     <form class="form" (ngSubmit)="onSubmit()">
       <h3 style="text-align: center;" >Registrati</h3>
       
@@ -27,8 +27,4 @@
       </div>
     </form>
   </div>
-
-  <div [hidden]="!submitted">
-    <h4>Confermato con successo!</h4>
-    <!-- <button class="btn btn-success" (click)="newUser()">Conferma</button> -->
-  </div>
+  

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import exigram.is.exigramproject.model.database.ExigramUser;
@@ -91,8 +90,13 @@ public class ExigramUserController {
             exigramUser.getUser().getUsername(), exigramUser.getUser().getPassword()));
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public void updateProfile(@RequestBody ExigramUserDto exigramUserDto) {
+        exigramUserService.updateProfile(exigramUserMapperService.toExigramUser(exigramUserDto));
+    }
+
+    @PutMapping("/update/password")
+    public void updateProfilePassword(@RequestBody ExigramUserDto exigramUserDto) {
         exigramUserService.updateProfile(exigramUserMapperService.toExigramUser(exigramUserDto));
     }
 
