@@ -26,7 +26,7 @@ public class Post {
     private ExigramUser exigramUser;
 
     @Lob
-    private byte[] image;
+    private byte[] postImage;
     private String description;
     private int votes;
 

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 public class PostDto {
 
     private ExigramUserDto exigramUserDto;
-    private byte[] image;
+    private String postImage;
     private String description;
     private int votes;
 

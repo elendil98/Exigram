@@ -6,20 +6,23 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { UserReportedComponent } from './user-reported/user-reported.component';
 
 @NgModule({
   declarations: [
     UserListComponent,
     UserDetailsComponent,
     CreateUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    UserReportedComponent
   ],
 
   exports: [
     UserDetailsComponent,
     UserListComponent,
     CreateUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    UserReportedComponent
   ],
 
   imports: [

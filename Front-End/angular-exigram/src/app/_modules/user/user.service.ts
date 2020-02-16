@@ -42,7 +42,6 @@ export class UserService {
   }
 
   deleteSelectedUser(user: User): Observable<void> {
-    // Maybe need to be used http.delete1
     return this.http.post<void>(`${this.baseUrl}/remove`, user);
   }
 
