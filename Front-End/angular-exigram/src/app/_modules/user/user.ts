@@ -5,5 +5,5 @@ export class User {
     firstName: string;
     lastName: string;
     biography: string;
-    userImage: any;
+    userImage: string;
 }
