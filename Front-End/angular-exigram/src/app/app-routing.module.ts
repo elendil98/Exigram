@@ -12,6 +12,7 @@ import { AuthGuardService } from './_guards/auth-guard.service';
 import { DashboardComponent } from './_modules/dashboard/dashboard/dashboard.component';
 import { PostAuthGuardService } from './_guards/post-auth-guard.service';
 import { SearchComponent } from './_modules/search/search.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'details/:username', component: UserDetailsComponent }, //canActivate: AuthGuardService
   { path: 'search/:username', component: SearchComponent }, //canActivate: AuthGuardService
   { path: '**', redirectTo: 'error' },
+  { path: 'details/:post', component: PostDetailsComponent}, //canActivate: AuthGuardService
 ];
 
 @NgModule({

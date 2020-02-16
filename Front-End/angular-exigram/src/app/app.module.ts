@@ -12,6 +12,11 @@ import { UserModule } from './_modules/user/user.module';
 import { ErrorPageComponent } from './_modules/dashboard/error-page/error-page.component';
 import { DashboardComponent } from './_modules/dashboard/dashboard/dashboard.component';
 import { SearchComponent } from './_modules/search/search.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
+import { PostReportedComponent } from './post-reported/post-reported.component';
+import { UserReportedComponent } from './user-reported/user-reported.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import { SearchComponent } from './_modules/search/search.component';
     RecoverPasswordComponent,
     SearchComponent,
     ErrorPageComponent,
-    DashboardComponent
+    DashboardComponent,
+    PostDetailsComponent,
+    PostReportedComponent,
+    UserReportedComponent,
+    CreatePostComponent,
+    NotificationComponent
   ],
   imports: [
     FormsModule,

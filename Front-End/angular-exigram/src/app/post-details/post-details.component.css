@@ -9,18 +9,16 @@
     border-bottom: 1px solid rgb(230, 230, 230);
 }
 
+.post{
+    margin-top: 1px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
 .tutto{
     margin-left: 27%;
     margin-right: 25%;
-}
-
-#nuovo-post{
-    text-align: center;
-}
-
-.bottone-post{
-    text-align: center;
-    margin-top: 2%;
 }
 
 .immagine{
@@ -33,9 +31,10 @@
     margin-right: auto;
 }
 
-.post{
-    margin-top: 1px;
+.commento{
     border-width: 1px;
     border-color: black;
     border-style: solid;
+    padding-left: 1%;
+    padding-right: 1%;
 }
