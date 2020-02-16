@@ -31,16 +31,15 @@ export class UpdateUserComponent implements OnInit {
     this.userService.updateUser(this.user).subscribe(
       data => console.log(data), error => console.log(error)
     );
-    this.goToUser();
+    this.goToUser(this.user.userDto.username);
   }
 
   onSubmitPassword() {
     this.userService.updateUserPassword(this.user).subscribe(
       data => console.log(data), error => console.log(error)
     );
-    this.goToUser();
+    this.goToUser(this.user.userDto.username);
   }
-  
 
   updateUser() {
     this.userService.updateUser(this.user).subscribe(
@@ -68,8 +67,12 @@ export class UpdateUserComponent implements OnInit {
     else return false;
   }
 
-  goToUser() {
-    this.router.navigate(['users', this.getParamUrl()]);
+  goToUser(username: string) {
+    this.router.navigate(['details', username]);
+  }
+  
+  goToDashboard() {
+    this.router.navigate(['dashboard']);
   }
 
   logout() {

@@ -51,6 +51,10 @@ export class UserDetailsComponent implements OnInit {
     this.router.navigate(['update', this.userParam]);
   }
 
+  goToDashboard() {
+    this.router.navigate(['dashboard']);
+  }
+
   logout() {
     this.authService.logout();
   }

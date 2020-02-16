@@ -20,6 +20,12 @@
     border-color: transparent;
 }
 
+.modifica{
+    background-color: transparent;
+    border: transparent;
+    color: black;
+}
+
 .foto{
     border-radius: 100%;
     height: 150px;

@@ -92,12 +92,35 @@ public class ExigramUserController {
 
     @PostMapping("/update")
     public void updateProfile(@RequestBody ExigramUserDto exigramUserDto) {
-        exigramUserService.updateProfile(exigramUserMapperService.toExigramUser(exigramUserDto));
+        ExigramUser currentUser = exigramUserService.getProfile();
+        if(currentUser == null){
+            throw new IllegalAccessError("unauthorized");
+        }
+        if(!currentUser.getUser().getUsername().equals(exigramUserDto.getUserDto().getUsername())) {
+            throw new IllegalAccessError("not same user");
+        }
+        ExigramUser newUser = exigramUserMapperService.toExigramUser(exigramUserDto);
+        ExigramUser oldUser = exigramUserService.getExigramUserRepository().findByUserUsername(newUser.getUser().getUsername());
+        oldUser.setFirstName(newUser.getFirstName());
+        oldUser.setLastName(newUser.getLastName());
+        oldUser.getUser().setUsername(newUser.getUser().getUsername());
+        oldUser.setBiography(newUser.getBiography());
+        exigramUserService.getExigramUserRepository().save(oldUser);
     }
 
     @PutMapping("/update/password")
     public void updateProfilePassword(@RequestBody ExigramUserDto exigramUserDto) {
-        exigramUserService.updateProfile(exigramUserMapperService.toExigramUser(exigramUserDto));
+        ExigramUser currentUser = exigramUserService.getProfile();
+        if(currentUser == null){
+            throw new IllegalAccessError("unauthorized");
+        }
+        if(!currentUser.getUser().getUsername().equals(exigramUserDto.getUserDto().getUsername())) {
+            throw new IllegalAccessError("not same user");
+        }
+        ExigramUser newUser = exigramUserMapperService.toExigramUser(exigramUserDto);
+        ExigramUser oldUser = exigramUserService.getExigramUserRepository().findByUserUsername(newUser.getUser().getUsername());
+        oldUser.getUser().setPassword(passwordEncoder.encode(newUser.getUser().getPassword()));
+        exigramUserService.getExigramUserRepository().save(oldUser);
     }
 
     @PostMapping("/delete")
