@@ -42,7 +42,7 @@
       </div>
 
       <div *ngIf="isLoaded()" class="form-group">
-        <input placeholder="Biografia" type="text" class="form-control" id="biography" required [(ngModel)]="user.biography" name="biography">
+        <input placeholder="Biografia" type="text" class="form-control" maxlength="250" id="biography" required [(ngModel)]="user.biography" name="biography">
       </div>
       <button type="submit" class="btn btn-success">Conferma</button>
     </form>
