@@ -3,17 +3,15 @@
         <nav class="navbar navbar-light bg-light">
           <div>
             <img height="35" width="40" src="assets\logo.png">
-            <a class="exigram-brand">     Exigram</a>
+            <button class = "modifica" (click)="goToDashboard()">     Exigram</button>
           </div>
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
           <a class="notifiche">Notifiche</a>
-          <a class="profilo">
-            Profilo <!--{{user.userDto.username}} -->
-          </a>
-          <a>Logout</a>
+          <button *ngIf="isLoaded()" class = "modifica" (click)="goToUser(activeUser.userDto.username)">{{activeUser.userDto.username}}</button>
+          <button class = "modifica" (click)="logout()">Logout</button>
         </nav>
     </div> 
   
@@ -23,16 +21,15 @@
     <div class="tutto">
       <div class="post">
           <div>
-            <a style="margin-left: 1%;">utente che ha caricato il post</a>
+          <a *ngIf="isLoaded()" style="margin-left: 1%;">{{selectedUser.userDto.username}}</a>
           </div>
           <div class="immagine">
-              <img width="auto" height="300px" class="img-centrata" src="assets/defaultUser.jpg">
+            <img *ngIf="isLoaded()" width="auto" height="200px" class="img-centrata" [src]="getSafePostUrl()">
           </div>
           <div class="voto">
-              <button style="border-color: transparent;" ><img height="25px" width="25px" src="assets/freccia-su.jpg"></button>
-              <button style="margin-left: 1%; border-color: transparent;"><img height="25px" width="25px" src="assets/freccia-giu.png"></button>
-              <a style="margin-left: 1%;">voto</a>
-              <button id="visualizza-1" style="margin-left: 1%; border-color: transparent;">Visualizza Post</button>
+              <button style="border-color: transparent;" ><img height="25px" width="25px" src="assets/up-arrow.jpg"></button>
+              <button style="margin-left: 1%; border-color: transparent;"><img height="25px" width="25px" src="assets/down-arrow.jpg"></button>
+              <a style="margin-left: 1%;">Voti:</a>
           </div>
       </div>
 
@@ -44,7 +41,7 @@
       </div>
 
       <div style="margin-top: 1px;" class="commento">
-        <a>Username</a>
+      <a *ngIf="isLoaded()">{{activeUser.userDto.username}}</a>
         <p>questo è un commento</p>
       </div>
     </div>

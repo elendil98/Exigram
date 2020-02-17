@@ -23,6 +23,7 @@ export class CreatePostComponent implements OnInit {
     this.userService.getActiveUser().subscribe(
       data => {this.activeUser = data; 
         this.post = new Post();
+        this.isLoaded();
       }, error => console.log(error)
     );
 

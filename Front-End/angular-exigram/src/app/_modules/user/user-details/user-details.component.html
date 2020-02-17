@@ -22,36 +22,32 @@
         <img class="f" [src]="getSafeUrl()">
         </div>
         <div class="utente">
-          <button (click)="goToUserUpdate()" class="modifica" style="margin-left: 70%;">Modifica profilo</button>
+          <button *ngIf="isActiveUser()" (click)="goToUserUpdate()" class="modifica" style="margin-left: 70%;">Modifica profilo</button>
           <p>Username: {{selectedUser.userDto.username}}</p> 
           <p>Nome: {{selectedUser.firstName}}</p> 
           <p>Cognome: {{selectedUser.lastName}}</p> 
           <p>Email: {{selectedUser.userDto.email}}</p> 
         </div>
-        <div class="bio">
+        <div *ngIf="selectedUser.biography!=null" class="bio">
           <p>Biografia:</p>
           <p>{{selectedUser.biography}}</p><br>
         </div>
       </div>
       <br>
-      <div class="post">
         <p>Post: </p>
         <tr *ngFor="let post of posts | async">
+        <div class="tutto">
           <td>
             <div class="immagine">
-              <img width="auto" height="300px" class="img-centrata" [src]="getSafeUrl()">
+              <img width="auto" height="200px" class="img-centrata" [src]="getSafePostUrl(post)">
             </div>
-          </td>
-          <td>
             <div class="voto">
-              <button style="border-color: transparent;" ><img height="25px" width="25px" src="assets/up-arrow.jpg"></button>
-              <button style="margin-left: 1%; border-color: transparent;"><img height="25px" width="25px" src="assets/down-arrow.jpg"></button>
-              <a style="margin-left: 1%;">voto</a>
-              <button id="visualizza-1" style="margin-left: 1%; border-color: transparent;">Visualizza Post</button>
+              <a style="margin-left: 1%;">Voti: {{post.votes}}</a>
+                <button (click)="goToSelectedPost(post)" id="visualizza" class="btn btn-primary" style="margin-left: 1%;">Visualizza Post</button>
             </div>
           </td>
+        </div>
         </tr>
       </div>
-    </div>
   </div>
 </div>

@@ -17,22 +17,7 @@
 
   <div class="tutto">
       <div class="bottone-post" style="margin-bottom: 1%;">
-          <button id="nuovo-post" class="btn btn-primary"> + Crea post </button>    
-      </div>
-
-      <div class="post">
-          <div>
-            <a style="margin-left: 1%;">utente che ha caricato il post</a>
-          </div>
-          <div class="immagine">
-              <img width="auto" height="300px" class="img-centrata" src="assets/defaultUser.jpg">
-          </div>
-          <div class="voto">
-              <button style="border-color: transparent;" ><img height="25px" width="25px" src="assets/up-arrow.jpg"></button>
-              <button style="margin-left: 1%; border-color: transparent;"><img height="25px" width="25px" src="assets/down-arrow.jpg"></button>
-              <a style="margin-left: 1%;">voto</a>
-              <button id="visualizza-1" style="margin-left: 1%; border-color: transparent;">Visualizza Post</button>
-          </div>
+          <button (click)="goToCreatePost()" id="nuovo-post" class="btn btn-primary"> + Crea post </button>    
       </div>
   </div>
 </div>

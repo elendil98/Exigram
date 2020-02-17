@@ -23,7 +23,11 @@ export class PostService {
   }
 
   getAllUserPost(user: User): Observable<any> {
-    return this.http.get(`${this.baseUrl}/getallposts`)
+    return this.http.post(`${this.baseUrl}/getallposts`, user);
+  }
+
+  getPost(post: Post): Observable<Post> {
+    return this.http.post<Post>(`${this.baseUrl}/getpost`, post);
   }
 
 }

@@ -7,6 +7,7 @@ import exigram.is.exigramproject.model.database.Post;
 import exigram.is.exigramproject.repository.PostRepository;
 
 public interface PostService {
+    Post findPostById(Long postId);
     List<Post> getPostByExigramUserId(ExigramUser exigramUser);
     Post createPost(Post post);
     void updatePost(Post post);

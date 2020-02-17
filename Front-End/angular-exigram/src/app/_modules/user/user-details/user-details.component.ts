@@ -54,11 +54,24 @@ export class UserDetailsComponent implements OnInit {
     return this.userParam;
   }
 
+  isActiveUser() {
+    if(this.activeUser.userDto.username == this.selectedUser.userDto.username) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   isLoaded() {
     if(this.selectedUser != null){
       return true;
     }
     else return false;
+  }
+
+  goToSelectedPost(post: Post) {
+    this.router.navigate(['details', this.userParam, post.id]);
   }
 
   goToUserUpdate() {

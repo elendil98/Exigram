@@ -9,6 +9,12 @@
     border-bottom: 1px solid rgb(230, 230, 230);
 }
 
+.modifica{
+    background-color: transparent;
+    border: transparent;
+    color: black;
+}
+
 .post{
     margin-top: 1px;
     border-width: 1px;

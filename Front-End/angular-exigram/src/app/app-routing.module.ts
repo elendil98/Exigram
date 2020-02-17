@@ -24,8 +24,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] }, 
   { path: 'users', component: UserListComponent, canActivate: [AuthGuardService] },
-  { path: 'createpost', component: CreatePostComponent, }, // canActivate: [AuthGuardService]
-  { path: 'update/:username', component: UpdateUserComponent,  }, //canActivate: [AuthGuardService]
+  { path: 'createpost', component: CreatePostComponent, canActivate: [AuthGuardService] }, 
+  { path: 'update/:username', component: UpdateUserComponent, canActivate: [AuthGuardService]  },
   { path: 'details/:username', component: UserDetailsComponent, canActivate: [AuthGuardService] },
   { path: 'search/:username', component: SearchComponent, canActivate: [AuthGuardService] },
   { path: 'details/:username/:postid', component: PostDetailsComponent, canActivate: [AuthGuardService] },

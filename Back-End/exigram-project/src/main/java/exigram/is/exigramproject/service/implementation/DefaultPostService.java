@@ -21,6 +21,11 @@ public class DefaultPostService implements PostService {
     private SessionService sessionService;
 
     @Override
+    public Post findPostById(Long postId) {
+        return postRepository.findPostById(postId);
+    }
+
+    @Override
     public List<Post> getPostByExigramUserId(ExigramUser exigramUser) {
         return postRepository.getPostByExigramUserId(exigramUser.getId());
     }

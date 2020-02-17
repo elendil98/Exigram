@@ -21,6 +21,9 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  goToCreatePost() {
+    this.router.navigate(['createpost']);
+  }
 
   goToUser(username: string) {
     this.router.navigate(['details', username]);
