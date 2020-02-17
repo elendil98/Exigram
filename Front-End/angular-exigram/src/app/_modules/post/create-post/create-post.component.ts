@@ -16,6 +16,7 @@ export class CreatePostComponent implements OnInit {
   post: Post;
   activeUser: User;
   imageSubmitted: boolean;
+  submitted: boolean;
 
   constructor(private router: Router, private authService: AuthService, private userService: UserService, private postService: PostService) { }
 
@@ -33,7 +34,7 @@ export class CreatePostComponent implements OnInit {
     console.log(this.post);
     this.postService.createPost(this.post).subscribe(
       data => {this.goToDashboard();
-      }, error => console.log(error)
+      }, error =>  {this.submitted=true; console.log(error);}
     )
   }
 

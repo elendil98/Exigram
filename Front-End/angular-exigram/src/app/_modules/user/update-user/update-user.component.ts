@@ -15,6 +15,8 @@ export class UpdateUserComponent implements OnInit {
   base64TextString = [];
   userParam: string;
   user: User;
+  submitted: boolean;
+  submittedPass: boolean;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private authService: AuthService, public domSanitizationService: DomSanitizer) { }
 
@@ -26,20 +28,26 @@ export class UpdateUserComponent implements OnInit {
         console.log(data);
       }, error => console.log(error)
     );
+    this.submitted = false;
   }
 
   onSubmit() {
-    this.userService.updateUser(this.user).subscribe(
-      data => {console.log(data); 
-        this.redirectTo('update/' + this.user.userDto.username)}, error => console.log(error)
-    );
+    if(this.user.firstName == null || this.user.firstName == '' || this.user.lastName == null || this.user.lastName == '' || this.user.userDto.username == null || this.user.userDto.username == ''|| this.user.firstName.includes("&") || this.user.lastName.includes("&") || this.user.biography.includes("&")){
+      this.submitted=true;
+    }
+    else {
+      this.userService.updateUser(this.user).subscribe(
+        data => {console.log(data); 
+          this.redirectTo('update/' + this.user.userDto.username)}, error =>{ this.submitted=true; console.log(error);}
+      );
+    }
   }
 
   onSubmitPassword() {
     this.userService.updateUserPassword(this.user).subscribe(
-      data => console.log(data), error => console.log(error)
+      data => {
+        this.goToUser(this.user.userDto.username); console.log(data);}, error => {this.submittedPass=true; console.log(error);}
     );
-    this.goToUser(this.user.userDto.username);
   }
 
   onUploadChange(evt: any) {

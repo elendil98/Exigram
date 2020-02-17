@@ -12,18 +12,25 @@ import { User } from '../user';
 export class CreateUserComponent implements OnInit {
 
   user: User = new User();
+  submitted: boolean;
 
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
     this.user.userDto = new UserDto();
+    this.submitted=false;
   }
 
   onSubmit() {
-    this.userService.createUser(this.user).subscribe(
-      data => console.log(data), error => console.log(error)
-    );
-    this.goBack();
+    if (this.user.userDto.username != this.user.userDto.email) {
+      this.userService.createUser(this.user).subscribe(
+        data => {
+          this.goBack(); console.log(data);}, error => {this.submitted=true; console.log(error);}
+      );
+    }
+    else {
+      this.submitted=true;
+    }
   }
 
   goBack() {

@@ -13,20 +13,24 @@ import { User } from '../../user/user';
 export class RecoverPasswordComponent implements OnInit {
 
   user: User = new User();
+  submitted: boolean;
 
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.user.userDto = new UserDto(); 
+    this.submitted=false;
   }
 
   onSubmit() {
     this.userService.recoverUser(this.user).subscribe(
-      data => console.log(data), error => console.log(error)
+      data => { 
+        this.goBack(); console.log(data);
+      }, error => {
+        this.submitted=true; 
+        console.log(error);
+      }
     );
-    this.user = new User();
-    this.user.userDto = new UserDto();
-    this.goBack();
   }
 
   goBack() {

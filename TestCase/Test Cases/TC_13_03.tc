@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>L'utente chiede di modificare il profilo</description>
+   <name>TC_13_03</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>334a06aa-b280-4bc9-8a39-de33d0856512</testCaseGuid>
+</TestCaseEntity>

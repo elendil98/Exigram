@@ -6,17 +6,13 @@
       <div class="form-group" style="margin-bottom: 0rem;">
         <input type="text" placeholder="Username" class="form-control" id="username" required [(ngModel)]="user.userDto.username" name="username">
       </div>
-
-      <div class="error">
-        <p>Questo parametro è richiesto</p>
-      </div>
   
       <div class="form-group" style="margin-top: 1rem; margin-bottom: 0rem;">
         <input type="password" placeholder="Password" class="form-control" id="password" required [(ngModel)]="user.userDto.password" name="password">
       </div>
       
-      <div class="error">
-        <p>Questo parametro è richiesto</p>
+      <div *ngIf="submitted==true" class="error">
+      <p>Errore nei parametri inseriti!</p>
       </div>
 
       <div class="form-group" style="margin-top: 1rem;">

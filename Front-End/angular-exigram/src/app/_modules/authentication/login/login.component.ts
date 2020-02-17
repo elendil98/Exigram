@@ -15,6 +15,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent implements OnInit {
 
   user: User = new User();
+  submitted: boolean;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -27,7 +28,10 @@ export class LoginComponent implements OnInit {
       data => {
         this.authService.validateToken(data);
         console.log(data);
-      }, error => console.log(error)
+      }, error => {
+        this.submitted=true;
+        console.log(error); 
+      }
     );
   }
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>L'utente chiede di modificare l'immagine del profilo</description>
+   <name>TC_12_02</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>3ca36936-f6a3-463a-9d8b-4ad0a717e2f9</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>L'utente chiede di visualizzare l'utente</description>
+   <name>TC_17_02</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>c76d88d1-80ca-4ca7-9878-5141619826ef</testCaseGuid>
+</TestCaseEntity>

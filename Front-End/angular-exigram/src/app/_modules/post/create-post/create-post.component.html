@@ -24,6 +24,9 @@
           <div>
             <textarea placeholder="Insert description..." type="text" class="description" maxlength="250" id="description" required [(ngModel)]="post.description" name="description"></textarea>
           </div>
+          <div *ngIf="submitted==true" class="error">
+            <p>Errore nei parametri inseriti!</p>
+          </div>
           <div *ngIf="imageSubmitted==true" class="decision">
             <button type="submit" class="btn btn-success first-button">Conferma</button>
           </div>

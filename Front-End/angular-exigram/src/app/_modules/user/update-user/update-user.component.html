@@ -28,27 +28,15 @@
       </div>
 
       <div *ngIf="isLoaded()" class="form-group" style="margin-bottom: 0rem;">
-        <input placeholder="Nome" type="text" class="form-control" id="firstName" required [(ngModel)]="user.firstName" name="firstName">
-      </div>
-
-      <div class="error">
-        <p>Questo parametro è richiesto</p>
+        <input placeholder="Nome" type="text" minlength="5" class="form-control" id="firstName" required [(ngModel)]="user.firstName" name="firstName">
       </div>
 
       <div *ngIf="isLoaded()" class="form-group" style="margin-top: 1rem; margin-bottom: 0rem;">
         <input placeholder="Cognome" type="text" class="form-control" id="lastName" required [(ngModel)]="user.lastName" name="lastName">
       </div>
 
-      <div class="error">
-        <p>Questo parametro è richiesto</p>
-      </div>
-
-      <div *ngIf="isLoaded()" class="form-group" style="margin-top: 1rem; margin-bottom: 0rem;">
-        <input placeholder="Username" type="text" class="form-control" id="username" required [(ngModel)]="user.userDto.username" name="username">
-      </div>
-
-      <div class="error">
-        <p>Questo parametro è richiesto</p>
+      <div *ngIf="submitted==true" class="error">
+        <p>Errore nei parametri inseriti!</p>
       </div>
 
       <div *ngIf="isLoaded()" class="form-group" style="margin-top: 1rem;">
@@ -64,6 +52,9 @@
       
       <div *ngIf="isLoaded()" class="form-group">
         <input placeholder="Inserisci la nuova password" type="password" class="form-control" id="password" required [(ngModel)]="user.userDto.password" name="password">
+      </div>
+      <div *ngIf="submittedPass==true" class="error">
+        <p>Errore nei parametri inseriti!</p>
       </div>
         <button type="submit" class="btn btn-success">Conferma</button>
     </form>
