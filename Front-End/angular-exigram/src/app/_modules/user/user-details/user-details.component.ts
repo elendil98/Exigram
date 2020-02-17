@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AuthService } from '../../authentication/auth.service';
+import { Observable } from 'rxjs';
+import { Post } from '../../post/post';
+import { PostService } from '../../post/post.service';
 
 @Component({
   selector: 'app-user-details',
@@ -15,8 +18,9 @@ export class UserDetailsComponent implements OnInit {
   userParam: string;
   activeUser: User;
   selectedUser: User;
+  posts: Observable<Post[]>;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public domSanitizationService: DomSanitizer, private authService: AuthService, private cd: ChangeDetectorRef) {}
+  constructor(private postService: PostService, private route: ActivatedRoute, private router: Router, private userService: UserService, public domSanitizationService: DomSanitizer, private authService: AuthService, private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.userService.getActiveUser().subscribe(
@@ -26,6 +30,7 @@ export class UserDetailsComponent implements OnInit {
     this.userService.getUser(this.getParamUrl()).subscribe(
       data => {
         this.selectedUser = data;
+        this.posts = this.postService.getAllUserPost(this.selectedUser);
         this.isLoaded();
         console.log(data);
       }, error => console.log(error)
@@ -34,6 +39,10 @@ export class UserDetailsComponent implements OnInit {
 
   getSafeUrl() {
     return this.domSanitizationService.bypassSecurityTrustResourceUrl("data:image/png;base64, " + this.selectedUser.userImage);     
+  }
+
+  getSafePostUrl(post: Post) {
+    return this.domSanitizationService.bypassSecurityTrustResourceUrl("data:image/png;base64, " + post.postImage);     
   }
 
   getParamUrl() {

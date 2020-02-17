@@ -1,8 +1,11 @@
 package exigram.is.exigramproject.service.implementation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import exigram.is.exigramproject.model.database.ExigramUser;
 import exigram.is.exigramproject.model.database.Post;
 import exigram.is.exigramproject.repository.PostRepository;
 import exigram.is.exigramproject.service.PostService;
@@ -18,8 +21,8 @@ public class DefaultPostService implements PostService {
     private SessionService sessionService;
 
     @Override
-    public Post getPostById(Long id) {
-        return postRepository.findPostById(id);
+    public List<Post> getPostByExigramUserId(ExigramUser exigramUser) {
+        return postRepository.getPostByExigramUserId(exigramUser.getId());
     }
 
     @Override

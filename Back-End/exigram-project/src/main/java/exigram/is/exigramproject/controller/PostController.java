@@ -1,5 +1,7 @@
 package exigram.is.exigramproject.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import exigram.is.exigramproject.model.database.ExigramUser;
 import exigram.is.exigramproject.model.database.Post;
+import exigram.is.exigramproject.model.dto.ExigramUserDto;
 import exigram.is.exigramproject.model.dto.PostDto;
 import exigram.is.exigramproject.service.ExigramUserMapperService;
 import exigram.is.exigramproject.service.ExigramUserService;
@@ -30,9 +33,11 @@ public class PostController {
     @Autowired
     ExigramUserMapperService exigramUserMapperService;
 
-    @GetMapping("/get")
-    public Post getPost(Long id) {
-        return postService.getPostById(id);
+
+    @GetMapping("/getallposts")
+    public List<Post> getAllUserPost(@RequestBody ExigramUserDto exigramUserDto) {
+        ExigramUser exigramUser = exigramUserMapperService.toExigramUser(exigramUserDto);
+        return postService.getPostByExigramUserId(exigramUser);
     }
 
     @PostMapping("/create")

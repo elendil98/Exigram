@@ -31,7 +31,7 @@ export class CreatePostComponent implements OnInit {
   onSubmit() {
     console.log(this.post);
     this.postService.createPost(this.post).subscribe(
-      data => {console.log(this.post);
+      data => {this.goToDashboard();
       }, error => console.log(error)
     )
   }
