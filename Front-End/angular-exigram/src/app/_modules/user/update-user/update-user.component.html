@@ -40,7 +40,7 @@
       </div>
 
       <div *ngIf="isLoaded()" class="form-group">
-        <input placeholder="Biografia" type="text" class="form-control" id="biography" required [(ngModel)]="user.biography" name="biography">
+        <textarea placeholder="Biografia" type="text" class="form-control" id="biography" required [(ngModel)]="user.biography" name="biography"></textarea>
       </div>
 
       <button type="submit" class="btn btn-success">Conferma</button>

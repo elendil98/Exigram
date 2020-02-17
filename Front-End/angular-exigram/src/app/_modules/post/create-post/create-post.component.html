@@ -14,18 +14,19 @@
           <button class = "modifica" (click)="logout()">Logout</button>
         </nav>
     </div> 
-
-    <form class="form" (ngSubmit)="onSubmit()">
-        <h3 style="text-align: center;" >Crea post</h3>
-        
-        <div>
-          <input type="file" (change)="onUploadChange($event)" class="fileInputProfile">
-        </div>
-        <div>
-          <input placeholder="description" type="text" class="description" maxlength="250" id="description" required [(ngModel)]="post.description" name="description">
-        </div>
-        <div *ngIf="imageSubmitted==true" class="decision">
-          <button type="submit" class="btn btn-success first-button">Conferma</button>
-        </div>
-    </form>
+    <div class="create">
+      <form class="form" (ngSubmit)="onSubmit()">
+          <h3 style="text-align: center;" >Crea post</h3>
+          
+          <div>
+            <input type="file" (change)="onUploadChange($event)" class="fileInputProfile">
+          </div>
+          <div>
+            <textarea placeholder="Insert description..." type="text" class="description" maxlength="250" id="description" required [(ngModel)]="post.description" name="description"></textarea>
+          </div>
+          <div *ngIf="imageSubmitted==true" class="decision">
+            <button type="submit" class="btn btn-success first-button">Conferma</button>
+          </div>
+      </form>
+    </div>  
 </div>
