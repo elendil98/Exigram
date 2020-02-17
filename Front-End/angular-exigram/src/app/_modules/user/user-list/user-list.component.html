@@ -1,0 +1,43 @@
+<div class="panel panel-primary">
+  <div class="nav">
+    <nav class="navbar navbar-light bg-light">
+      <div>
+        <img height="35" width="40" src="assets\logo.png">
+        <a>     Exigram</a>
+      </div>
+      <a class="lista-utenti">Lista utenti</a>
+      <a class="utenti-segnalati">Utenti Segnalati</a>
+      <a class="post segnalati">Post segnalati</a>
+      <a class="logout">Logout</a>
+    </nav>
+  </div>
+
+    <div class="panel-body">
+      <div class="panel-heading">
+        <h2>Lista Utenti</h2>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Azioni</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users | async">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.userDto.username}}</td>
+            <td>{{user.userDto.email}}</td>
+            <td>
+                <button (click)="deleteUser(user)" class="btn btn-danger">Elimina</button>
+                <button (click)="userDetails(user.userDto.username)" class="btn btn-info" style="margin-left: 2%">Dettagli</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

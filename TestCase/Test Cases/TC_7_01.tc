@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>L'utente chiede di caricare un post</description>
+   <name>TC_7_01</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>7e655b31-d1c8-4f5a-a3e4-98ecdcb55c5f</testCaseGuid>
+</TestCaseEntity>

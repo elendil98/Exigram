@@ -1,0 +1,56 @@
+.navbar{
+    width: 100%;
+    padding-left: 27%;
+    padding-right: 25%;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.info-utente{
+    margin-left: 5%;
+}
+
+.panel{
+    background-color: rgb(241, 240, 240);
+    color: black;
+    margin: auto;
+}
+
+.tutto-utente{
+    padding: 5% 25% 0%;
+}
+
+.f{
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+}
+
+.tutto{
+    margin-left: 60%;
+    margin-right: 25%;
+    margin-bottom: 20%;
+}
+
+.modifica{
+    background-color: transparent;
+    border: transparent;
+    color: black;
+}
+
+.foto{
+    height: 150px;
+    width: 150px;
+    position: absolute;
+}
+
+.utente{
+    padding-left: 25%;  
+}
+
+.post{
+    margin-left: 5%;
+}
+
+.bio{
+    margin-top: 5%;
+}

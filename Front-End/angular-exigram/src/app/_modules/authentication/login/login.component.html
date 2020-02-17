@@ -1,0 +1,29 @@
+<div class="login">
+    <form class="form" (ngSubmit)="onSubmit()">
+
+      <h2 style="text-align:center">Exigram</h2>
+      
+      <div class="form-group" style="margin-bottom: 0rem;">
+        <input type="text" placeholder="Username" class="form-control" id="username" required [(ngModel)]="user.userDto.username" name="username">
+      </div>
+  
+      <div class="form-group" style="margin-top: 1rem; margin-bottom: 0rem;">
+        <input type="password" placeholder="Password" class="form-control" id="password" required [(ngModel)]="user.userDto.password" name="password">
+      </div>
+      
+      <div *ngIf="submitted==true" class="error">
+      <p>Errore nei parametri inseriti!</p>
+      </div>
+
+      <div class="form-group" style="margin-top: 1rem;">
+        <button class="btn btn-primary login-button">
+            Login
+        </button>
+      </div> 
+    
+      <div class="register-group">
+          <button (click)="register()" class="btn btn-primary btn-block">Non hai un account? Registrati ora!</button>
+          <button (click)="recover()" class="btn btn-primary btn-block">Non ricordi le credenziali? Recuperale!</button>
+      </div>
+    </form>
+</div>

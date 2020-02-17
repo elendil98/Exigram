@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>L'utente chiede di registrarsi al sistema</description>
+   <name>TC_2_05</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>2b672973-be34-4338-bf89-8e78544517a1</testCaseGuid>
+</TestCaseEntity>

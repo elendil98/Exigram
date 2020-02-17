@@ -1,0 +1,53 @@
+<div class="panel">
+  <div class="nav">
+    <nav class="navbar navbar-light bg-light">
+      <div>
+        <img height="35" width="40" src="assets\logo.png">
+          <button class = "modifica" (click)="goToDashboard()">     Exigram</button>
+      </div>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <a class="notifiche">Notifiche</a>
+      <button *ngIf="isLoaded()" class = "modifica" (click)="goToUser(activeUser.userDto.username)">{{activeUser.userDto.username}}</button>
+      <button class = "modifica" (click)="logout()">Logout</button>
+    </nav>
+  </div>  
+
+  <div *ngIf="isLoaded()">
+    <div class="tutto-utente" >
+      <div class="info-utente">
+        <div class="foto">
+        <img class="f" [src]="getSafeUrl()">
+        </div>
+        <div class="utente">
+          <button *ngIf="isActiveUser()" (click)="goToUserUpdate()" class="modifica" style="margin-left: 70%;">Modifica profilo</button>
+          <p>Username: {{selectedUser.userDto.username}}</p> 
+          <p>Nome: {{selectedUser.firstName}}</p> 
+          <p>Cognome: {{selectedUser.lastName}}</p> 
+          <p>Email: {{selectedUser.userDto.email}}</p> 
+        </div>
+        <div *ngIf="selectedUser.biography!=null" class="bio">
+          <p>Biografia:</p>
+          <p>{{selectedUser.biography}}</p><br>
+        </div>
+      </div>
+      <br>
+        <p>Post: </p>
+        <tr *ngFor="let post of posts | async">
+        <div class="tutto">
+          <td>
+            <div class="immagine">
+              <img width="auto" height="200px" class="img-centrata" [src]="getSafePostUrl(post)">
+            </div>
+            <div class="voto">
+              <a style="margin-left: 1%;">Voti: {{post.votes}}</a>
+                <button (click)="goToSelectedPost(post)" id="visualizza" class="btn btn-primary" style="margin-left: 1%;">Visualizza Post</button>
+            </div>
+          </td>
+        </div>
+        </tr>
+      </div>
+  </div>
+</div>

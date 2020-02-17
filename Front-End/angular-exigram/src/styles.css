@@ -1,0 +1,6 @@
+/* Stile globale, possibile aggiunta di altri file */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+html{
+    background-color: rgb(241, 240, 240);
+}

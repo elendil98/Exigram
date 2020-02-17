@@ -1,0 +1,46 @@
+.panel{
+    background-color: rgb(241, 240, 240);
+}
+
+.navbar{
+    width: 100%;
+    padding-left: 27%;
+    padding-right: 25%;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.modifica{
+    background-color: transparent;
+    border: transparent;
+    color: black;
+}
+
+.post{
+    margin-top: 1px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.tutto{
+    margin-left: 27%;
+    margin-right: 25%;
+}
+
+.immagine{
+    text-align: center;
+}
+
+.img-centrata {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.commento{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    padding-left: 1%;
+    padding-right: 1%;
+}

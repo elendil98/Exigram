@@ -1,0 +1,50 @@
+.panel{
+    background-color: rgb(241, 240, 240);
+    color: black;
+    margin: auto;
+}
+
+.navbar{
+    width: 100%;
+    padding-left: 27%;
+    padding-right: 25%;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#biography{
+    resize: none;
+    height: 170px;
+    width: 100%;
+
+}
+
+.tutto-modifica{
+    text-align: center;
+}
+
+.cambia-immagine{
+    border-radius: 5px;
+    border-color: transparent;
+}
+
+.modifica{
+    background-color: transparent;
+    border: transparent;
+    color: black;
+}
+
+.foto{
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+}
+
+.form-group{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.error{
+    color: red;
+    font-size: 0.75em;
+  }

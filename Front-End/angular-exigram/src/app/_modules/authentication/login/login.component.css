@@ -1,0 +1,60 @@
+/* 'Open Sans' font from Google Fonts */
+.login {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+  font-size: 16px;
+  color:black;
+  background-color: rgb(241, 240, 240);
+}
+
+.login-button{
+  padding-left: 45%;
+  padding-right: 45%;
+  
+}
+
+.form{
+  width: 30%;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.login input[type="submit"] {
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+    background: #28d;
+}
+
+.login input[type="submit"]:hover {
+  background: #17c;
+}
+
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: #05a;
+}
+
+.error{
+  color: red;
+  font-size: 0.75em;
+}

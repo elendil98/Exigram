@@ -1,0 +1,16 @@
+.panel{
+    color:black;
+    background-color: rgb(241, 240, 240);
+}
+
+.navbar{
+    width: 100%;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.tutto{
+    margin-left: 27%;
+    margin-right: 25%;
+}

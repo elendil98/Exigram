@@ -47,6 +47,12 @@
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
 
+		<dependency>
+    		<groupId>org.hsqldb</groupId>
+    		<artifactId>hsqldb</artifactId>
+    		<scope>runtime</scope>
+		</dependency>
+
 		<!-- mysql connector -->
 		<dependency>
 			<groupId>mysql</groupId>
