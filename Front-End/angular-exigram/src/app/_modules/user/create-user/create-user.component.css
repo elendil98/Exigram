@@ -23,3 +23,8 @@
 .first-button{
     margin-right: 4%;
 }
+
+.error{
+    color: red;
+    font-size: 0.75em;
+  }

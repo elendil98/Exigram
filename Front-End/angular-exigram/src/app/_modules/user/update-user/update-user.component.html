@@ -27,19 +27,31 @@
         <input type="file" (change)="onUploadChange($event)" class="fileInputProfile">
       </div>
 
-      <div *ngIf="isLoaded()" class="form-group">
+      <div *ngIf="isLoaded()" class="form-group" style="margin-bottom: 0rem;">
         <input placeholder="Nome" type="text" class="form-control" id="firstName" required [(ngModel)]="user.firstName" name="firstName">
       </div>
 
-      <div *ngIf="isLoaded()" class="form-group">
+      <div class="error">
+        <p>Questo parametro è richiesto</p>
+      </div>
+
+      <div *ngIf="isLoaded()" class="form-group" style="margin-top: 1rem; margin-bottom: 0rem;">
         <input placeholder="Cognome" type="text" class="form-control" id="lastName" required [(ngModel)]="user.lastName" name="lastName">
       </div>
 
-      <div *ngIf="isLoaded()" class="form-group">
+      <div class="error">
+        <p>Questo parametro è richiesto</p>
+      </div>
+
+      <div *ngIf="isLoaded()" class="form-group" style="margin-top: 1rem; margin-bottom: 0rem;">
         <input placeholder="Username" type="text" class="form-control" id="username" required [(ngModel)]="user.userDto.username" name="username">
       </div>
 
-      <div *ngIf="isLoaded()" class="form-group">
+      <div class="error">
+        <p>Questo parametro è richiesto</p>
+      </div>
+
+      <div *ngIf="isLoaded()" class="form-group" style="margin-top: 1rem;">
         <textarea placeholder="Biografia" type="text" class="form-control" id="biography" required [(ngModel)]="user.biography" name="biography"></textarea>
       </div>
 

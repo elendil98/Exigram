@@ -43,3 +43,8 @@
     margin-left: 30%;
     margin-right: 30%;
 }
+
+.error{
+    color: red;
+    font-size: 0.75em;
+  }

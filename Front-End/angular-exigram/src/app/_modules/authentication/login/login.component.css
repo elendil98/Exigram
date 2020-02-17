@@ -53,3 +53,8 @@
 .login input[type="submit"]:focus {
   border-color: #05a;
 }
+
+.error{
+  color: red;
+  font-size: 0.75em;
+}
