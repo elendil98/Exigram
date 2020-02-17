@@ -13,7 +13,7 @@ import { PostModule } from './_modules/post/post.module';
 import { ErrorPageComponent } from './_modules/dashboard/error-page/error-page.component';
 import { DashboardComponent } from './_modules/dashboard/dashboard/dashboard.component';
 import { SearchComponent } from './_modules/search/search.component';
-import { NotificationComponent } from './notification/notification.component';
+import { NotificationComponent } from './_modules/notification/notification.component';
 
 @NgModule({
   declarations: [
