@@ -6,12 +6,16 @@ import org.springframework.stereotype.Service;
 import exigram.is.exigramproject.model.database.Post;
 import exigram.is.exigramproject.repository.PostRepository;
 import exigram.is.exigramproject.service.PostService;
+import it.simyth.jwtsecurity.services.SessionService;
 
 @Service
 public class DefaultPostService implements PostService {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private SessionService sessionService;
 
     @Override
     public Post getPostById(Long id) {
@@ -25,7 +29,7 @@ public class DefaultPostService implements PostService {
 
     @Override
     public void updatePost(Post post) {
-        postRepository.save(post);
+        sessionService.update(post);
     }
 
     @Override

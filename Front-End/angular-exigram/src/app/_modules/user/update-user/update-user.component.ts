@@ -12,6 +12,7 @@ import { AuthService } from '../../authentication/auth.service';
 })
 export class UpdateUserComponent implements OnInit {
 
+  base64TextString = [];
   userParam: string;
   user: User;
 
@@ -29,9 +30,9 @@ export class UpdateUserComponent implements OnInit {
 
   onSubmit() {
     this.userService.updateUser(this.user).subscribe(
-      data => console.log(data), error => console.log(error)
+      data => {console.log(data); 
+        this.redirectTo('update/' + this.user.userDto.username)}, error => console.log(error)
     );
-    this.goToUser(this.user.userDto.username);
   }
 
   onSubmitPassword() {
@@ -39,6 +40,26 @@ export class UpdateUserComponent implements OnInit {
       data => console.log(data), error => console.log(error)
     );
     this.goToUser(this.user.userDto.username);
+  }
+
+  onUploadChange(evt: any) {
+    let file = evt.target.files[0];
+    if (file) {
+      let reader = new FileReader();
+      let me = this;
+
+      reader.readAsDataURL(file);
+      reader.onload = function() {
+        me.user.userImage = reader.result.toString().split(',')[1];
+        me.userService.updateUserImage(me.user).subscribe(
+          data => console.log(data), error => console.log(error)
+        );
+        console.log(reader.result);     
+        me.goToUser(me.user.userDto.username);
+      }; reader.onerror = function(error) {
+        console.log(error);
+        }
+    }
   }
 
   updateUser() {
@@ -61,7 +82,7 @@ export class UpdateUserComponent implements OnInit {
   }
 
   isLoaded() {
-    if(this.user != null){
+    if(this.user != null && this.user.userDto != null){
       return true;
     }
     else return false;
@@ -73,6 +94,11 @@ export class UpdateUserComponent implements OnInit {
   
   goToDashboard() {
     this.router.navigate(['dashboard']);
+  }
+
+  redirectTo(uri:string){
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([uri]));
   }
 
   logout() {

@@ -10,9 +10,7 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <a class="notifiche">Notifiche</a>
-      <a *ngIf="isLoaded()" class="profilo">
-        {{user.userDto.username}} 
-      </a>
+      <button *ngIf="isLoaded()" class = "modifica" (click)="goToUser(activeUser.userDto.username)">{{activeUser.userDto.username}}</button>
       <button class = "modifica" (click)="logout()">Logout</button>
     </nav>
   </div>  
@@ -25,19 +23,20 @@
         </div>
         <div class="utente">
           <button (click)="goToUserUpdate()" class="modifica" style="margin-left: 70%;">Modifica profilo</button>
-          <p>Username: {{user.userDto.username}}</p> 
-          <p>Nome: {{user.firstName}}</p> 
-          <p>Cognome: {{user.lastName}}</p> 
-          <p>Email: {{user.userDto.email}}</p> 
+          <p>Username: {{selectedUser.userDto.username}}</p> 
+          <p>Nome: {{selectedUser.firstName}}</p> 
+          <p>Cognome: {{selectedUser.lastName}}</p> 
+          <p>Email: {{selectedUser.userDto.email}}</p> 
         </div>
         <div class="bio">
           <p>Biografia:</p>
-          <p>{{user.biography}}</p><br>
+          <p>{{selectedUser.biography}}</p><br>
         </div>
       </div>
       <br>
       <div class="post">
-        <p>qui vanno i post qui vanno i post qui vanno i post qui vanno i post qui vanno i post qui vanno i post qui vanno i post qui vanno i post qui vanno i post qui vanno i post </p>
+        <p>Post: </p>
+        
       </div>
 
     </div>

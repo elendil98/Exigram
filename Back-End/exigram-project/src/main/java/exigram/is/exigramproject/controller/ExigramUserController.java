@@ -66,9 +66,12 @@ public class ExigramUserController {
     }
 
     @GetMapping("/get")
-    public ExigramUserDto getProfile() {
-        return exigramUserMapperService.toExigramUserDto(
-            exigramUserService.getProfile());
+    public ExigramUserDto getActiveProfile() {
+        ExigramUser currentUser = exigramUserService.getProfile();
+        if(currentUser == null){
+            throw new IllegalAccessError("unauthorized");
+        }
+        return exigramUserMapperService.toExigramUserDto(currentUser);
     }
 
     @GetMapping("/getAll")
@@ -122,6 +125,21 @@ public class ExigramUserController {
         oldUser.getUser().setPassword(passwordEncoder.encode(newUser.getUser().getPassword()));
         exigramUserService.getExigramUserRepository().save(oldUser);
     }
+
+    @PostMapping("/update/image")
+    public void updateProfileImage(@RequestBody ExigramUserDto exigramUserDto) {
+        ExigramUser currentUser = exigramUserService.getProfile();
+        if(currentUser == null){
+            throw new IllegalAccessError("unauthorized");
+        }
+        if(!currentUser.getUser().getUsername().equals(exigramUserDto.getUserDto().getUsername())) {
+            throw new IllegalAccessError("not same user");
+        }
+        ExigramUser newUser = exigramUserMapperService.toExigramUser(exigramUserDto);
+        currentUser.setUserImage(newUser.getUserImage());
+        exigramUserService.getExigramUserRepository().save(currentUser);
+    }
+
 
     @PostMapping("/delete")
     public void deleteProfile() {

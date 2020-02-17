@@ -13,6 +13,14 @@ export class UserService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
+  getActiveUser(): Observable<User> {
+    let httpHeaders = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.authService.getToken(),
+    });
+    let options = {headers: httpHeaders};
+    return this.http.get<User>(`${this.baseUrl}/get`, options);
+  }
+
   getUser(username: string): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/get/${username}`);
   }
@@ -39,6 +47,14 @@ export class UserService {
     });
     let options = {headers: httpHeaders};
     return this.http.put<void>(`${this.baseUrl}/update/password`, user, options);
+  }
+
+  updateUserImage(user: User): Observable<void> {
+    let httpHeaders = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.authService.getToken(),
+    });
+    let options = {headers: httpHeaders};
+    return this.http.post<void>(`${this.baseUrl}/update/image`, user, options);
   }
 
   deleteSelectedUser(user: User): Observable<void> {

@@ -1,5 +1,6 @@
 package exigram.is.exigramproject.model.dto;
 
+import exigram.is.exigramproject.model.database.ExigramUser;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,7 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PostDto {
 
-    private ExigramUserDto exigramUserDto;
+    private Long id;
+    private ExigramUser exigramUser;
     private String postImage;
     private String description;
     private int votes;

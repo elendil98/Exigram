@@ -13,25 +13,29 @@ import { DashboardComponent } from './_modules/dashboard/dashboard/dashboard.com
 import { PostAuthGuardService } from './_guards/post-auth-guard.service';
 import { SearchComponent } from './_modules/search/search.component';
 import { PostDetailsComponent } from './_modules/post/post-details/post-details.component';
+import { CreatePostComponent } from './_modules/post/create-post/create-post.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'error', component: ErrorPageComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'recover', component: RecoverPasswordComponent }, //canActivate: PostAuthGuardService
-  { path: 'create', component: CreateUserComponent }, //canActivate: PostAuthGuardService
-  { path: 'dashboard', component: DashboardComponent },  //canActivate: AuthGuardService
-  { path: 'admin', component: AdminComponent}, //canActivate: AuthGuardService
-  { path: 'users', component: UserListComponent }, //canActivate: AuthGuardService
-  { path: 'update/:username', component: UpdateUserComponent }, //canActivate: AuthGuardService
-  { path: 'details/:username', component: UserDetailsComponent }, //canActivate: AuthGuardService
-  { path: 'search/:username', component: SearchComponent }, //canActivate: AuthGuardService
-  { path: 'details/:username/:postid', component: PostDetailsComponent}, //canActivate: AuthGuardService
+  { path: 'recover', component: RecoverPasswordComponent, canActivate: [PostAuthGuardService] },
+  { path: 'create', component: CreateUserComponent, canActivate: [PostAuthGuardService] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] }, 
+  { path: 'users', component: UserListComponent, canActivate: [AuthGuardService] },
+  { path: 'createpost', component: CreatePostComponent, canActivate: [AuthGuardService] },
+  { path: 'update/:username', component: UpdateUserComponent, canActivate: [AuthGuardService] },
+  { path: 'details/:username', component: UserDetailsComponent, canActivate: [AuthGuardService] },
+  { path: 'search/:username', component: SearchComponent, canActivate: [AuthGuardService] },
+  { path: 'details/:username/:postid', component: PostDetailsComponent, canActivate: [AuthGuardService] },
   { path: '**', redirectTo: 'error' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation: 'reload'
+  })],
   providers: [AuthGuardService, PostAuthGuardService],
   exports: [RouterModule]
 })

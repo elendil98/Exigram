@@ -10,16 +10,14 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         <a class="notifiche">Notifiche</a>
-        <a class="profilo">
-          Profilo <!--{{user.userDto.username}} -->
-        </a>
-        <a>Logout</a>
+        <button *ngIf="isLoaded()" class = "modifica" (click)="goToUser(activeUser.userDto.username)">{{activeUser.userDto.username}}</button>
+        <button class = "modifica" (click)="logout()">Logout</button>
       </nav>
   </div> 
 
   <div class="tutto">
       <div class="bottone-post" style="margin-bottom: 1%;">
-          <button id="nuovo-post"> Crea post </button>    
+          <button id="nuovo-post" class="btn btn-primary"> + Crea post </button>    
       </div>
 
       <div class="post">
@@ -30,8 +28,8 @@
               <img width="auto" height="300px" class="img-centrata" src="assets/defaultUser.jpg">
           </div>
           <div class="voto">
-              <button style="border-color: transparent;" ><img height="25px" width="25px" src="assets/freccia-su.jpg"></button>
-              <button style="margin-left: 1%; border-color: transparent;"><img height="25px" width="25px" src="assets/freccia-giu.png"></button>
+              <button style="border-color: transparent;" ><img height="25px" width="25px" src="assets/up-arrow.jpg"></button>
+              <button style="margin-left: 1%; border-color: transparent;"><img height="25px" width="25px" src="assets/down-arrow.jpg"></button>
               <a style="margin-left: 1%;">voto</a>
               <button id="visualizza-1" style="margin-left: 1%; border-color: transparent;">Visualizza Post</button>
           </div>

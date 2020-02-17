@@ -3,31 +3,29 @@
         <nav class="navbar navbar-light bg-light">
           <div>
             <img height="35" width="40" src="assets\logo.png">
-            <a class="exigram-brand">     Exigram</a>
+            <button class = "modifica" (click)="goToDashboard()">     Exigram</button>
           </div>
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
           <a class="notifiche">Notifiche</a>
-          <a class="profilo">
-            Profilo <!--{{user.userDto.username}} -->
-          </a>
-          <a>Logout</a>
+          <button *ngIf="isLoaded()" class = "modifica" (click)="goToUser(activeUser.userDto.username)">{{activeUser.userDto.username}}</button>
+          <button class = "modifica" (click)="logout()">Logout</button>
         </nav>
     </div> 
 
     <form class="form" (ngSubmit)="onSubmit()">
         <h3 style="text-align: center;" >Crea post</h3>
         
-        <div class="scegli-foto">
-          <input type="image" class="form-control" id="foto">
+        <div>
+          <input type="file" (change)="onUploadChange($event)" class="fileInputProfile">
         </div>
         <div>
-            <input placeholder="didascalia" type="text" class="didasca" maxlength="250" id="dida" name="didascalia">
+          <input placeholder="description" type="text" class="description" maxlength="250" id="description" required [(ngModel)]="post.description" name="description">
         </div>
-        <div class="decision">
-          <button id="decision-button-1" type="submit" class="btn btn-success first-button">Conferma</button>
+        <div *ngIf="imageSubmitted==true" class="decision">
+          <button type="submit" class="btn btn-success first-button">Conferma</button>
         </div>
     </form>
 </div>

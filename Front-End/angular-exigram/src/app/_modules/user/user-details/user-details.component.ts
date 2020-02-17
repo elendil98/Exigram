@@ -1,4 +1,4 @@
-import { Component, OnInit, SecurityContext } from '@angular/core';
+import { Component, OnInit, SecurityContext, ChangeDetectorRef } from '@angular/core';
 import { User } from '../user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
@@ -13,14 +13,19 @@ import { AuthService } from '../../authentication/auth.service';
 export class UserDetailsComponent implements OnInit {
 
   userParam: string;
-  user: User;
+  activeUser: User;
+  selectedUser: User;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public domSanitizationService: DomSanitizer, private authService: AuthService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, public domSanitizationService: DomSanitizer, private authService: AuthService, private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
+    this.userService.getActiveUser().subscribe(
+      data => this.activeUser = data, error => console.log(error)
+    );
+
     this.userService.getUser(this.getParamUrl()).subscribe(
       data => {
-        this.user = data;
+        this.selectedUser = data;
         this.isLoaded();
         console.log(data);
       }, error => console.log(error)
@@ -28,7 +33,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getSafeUrl() {
-    return this.domSanitizationService.bypassSecurityTrustResourceUrl("data:image/png;base64, " + this.user.userImage);     
+    return this.domSanitizationService.bypassSecurityTrustResourceUrl("data:image/png;base64, " + this.selectedUser.userImage);     
   }
 
   getParamUrl() {
@@ -41,7 +46,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   isLoaded() {
-    if(this.user != null){
+    if(this.selectedUser != null){
       return true;
     }
     else return false;
@@ -55,8 +60,17 @@ export class UserDetailsComponent implements OnInit {
     this.router.navigate(['dashboard']);
   }
 
+  goToUser(username: string) {
+    this.redirectTo('details/' + username);
+  }
+
   logout() {
     this.authService.logout();
+  }
+
+  redirectTo(uri:string){
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([uri]));
   }
 
 }

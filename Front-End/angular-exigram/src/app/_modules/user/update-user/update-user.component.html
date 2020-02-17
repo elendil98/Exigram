@@ -24,7 +24,7 @@
         <img *ngIf="isLoaded()" class="foto" [src]="getSafeUrl()">
       </div>
       <div>
-        <button class="cambia-immagine">Cambia immagine</button>
+        <input type="file" (change)="onUploadChange($event)" class="fileInputProfile">
       </div>
 
       <div *ngIf="isLoaded()" class="form-group">
